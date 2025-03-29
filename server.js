@@ -5,7 +5,7 @@ const app = express();
 const port = 5000;
 
 app.get("/api/estaciones", async (req, res) => {
-    const apiKey = "TU_API_KEY"; // Reemplaza con tu clave de API
+    const apiKey = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlYm1hcnJlcm90QGdtYWlsLmNvbSIsImp0aSI6IjBiNzNiZmI0LTkyM2QtNGI1OC1hNjMyLTM1NzVkMDA2MTdjMCIsImlzcyI6IkFFTUVUIiwiaWF0IjoxNzQzMjg0MjgxLCJ1c2VySWQiOiIwYjczYmZiNC05MjNkLTRiNTgtYTYzMi0zNTc1ZDAwNjE3YzAiLCJyb2xlIjoiIn0.JHFhWowiwsekQEkGG3FYLg_YDnR5XBgm6NsQ8zSE6zE"; // Reemplaza con tu clave de API
     const url = "https://opendata.aemet.es/opendata/api/valores/climatologicos/inventarioestaciones/todasestaciones";
 
     try {
