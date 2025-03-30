@@ -18,6 +18,10 @@ const Name = sequelize.define('Name', {
     name: { type: DataTypes.STRING, allowNull: false }
 });
 
+app.get('/', (req, res) => {
+    res.send('Servidor funcionando correctamente');
+  });
+
 // Intentar sincronizar la base de datos
 sequelize.sync()
     .then(() => {
