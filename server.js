@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Conectar con PostgreSQL (cambia los valores según tu configuración)
+// Conectar con PostgreSQL
 const sequelize = new Sequelize('postgresql://postgres:QuzItzlTJzMmGKHuMjAtoIdbJUNZoKBF@crossover.proxy.rlwy.net:16391/railway');
 
 const Name = sequelize.define('Name', {
