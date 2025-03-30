@@ -8,6 +8,8 @@
     "dependencies": {
       "express": "^4.17.1",
       "sequelize": "^6.x.x",
+      "body-parser": "^1.x.x",
+      "pg": "^8.x.x",
       "cors": "^2.8.5"
     }
   }  
