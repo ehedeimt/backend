@@ -1,11 +1,17 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const { Sequelize, DataTypes } = require('sequelize');
+
 const app = express();
-const PORT = process.env.PORT || 3000;
+app.use(cors());
+app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+// Conectar con PostgreSQL (cambia los valores según tu configuración)
+const sequelize = new Sequelize('postgres://usuario:contraseña@localhost:5432/mi_basedatos');
+
+const Name = sequelize.define('Name', {
+    name: { type: DataTypes.STRING, allowNull: false }
 });
 
-app.listen(PORT, () => {
-  console.log(`Servidor Backend corriendo en el puerto ${PORT}`);
-});
+sequelize.sync();
