@@ -43,3 +43,21 @@ router.post('/login', async (req, res) => {
 });
 
 module.exports = router;
+
+
+//Ruta para registrar un usuario (POST /api/usuarios)
+router.post('/usuarios', (req, res) => {
+    const { nombre, email, password } = req.body;
+
+    //Control de los campos
+    if (!nombre || !email || !password) {
+        return res.status(400).json({ error: 'Faltan campos requeridos' });
+    }
+
+    console.log('Usuario registrado:', { nombre, email });
+    
+    // Respuesta de éxito
+    res.status(201).json({ mensaje: 'Usuario creado correctamente' });
+});
+
+module.exports = router;
