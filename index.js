@@ -1,23 +1,21 @@
-const cors = require('cors');
 const express = require('express');
+const cors = require('cors');
 const app = express();
 
-//IMPORTANTE: permitir tu dominio (o todos con '*')
+//
 app.use(cors({
-  origin: 'https://eimtcms.eimt.uoc.edu'  // ← mi frontend
+  origin: 'https://eimtcms.eimt.uoc.edu', //dominio frontend exacto
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
 }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Aquí va tu ruta
-app.post('/api/usuarios', (req, res) => {
-  const { nombre, email, password } = req.body;
-  console.log({ nombre, email, password });
-  res.status(201).json({ mensaje: '✅ Usuario registrado' });
-});
+// tus rutas
+app.use('/api', require('./routes/usuarios'));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`🚀 Servidor en el puerto ${PORT}`);
+  console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
