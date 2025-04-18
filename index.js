@@ -1,30 +1,23 @@
-// index.js
-const express = require('express');
 const cors = require('cors');
+const express = require('express');
 const app = express();
 
-// Habilita CORS para permitir peticiones desde tu frontend (donde sea que esté)
-app.use(cors());
+//IMPORTANTE: permitir tu dominio (o todos con '*')
+app.use(cors({
+  origin: 'https://eimtcms.eimt.uoc.edu'  // ← mi frontend
+}));
 
-// Middleware para procesar JSON y formularios
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Ruta POST para recibir los datos del formulario
+// Aquí va tu ruta
 app.post('/api/usuarios', (req, res) => {
-    const { nombre, email, password } = req.body;
-
-    if (!nombre || !email || !password) {
-        return res.status(400).json({ error: 'Todos los campos son obligatorios' });
-    }
-
-    console.log('📥 Nuevo registro recibido:', { nombre, email });
-
-    res.status(201).json({ mensaje: '✅ Usuario registrado con éxito' });
+  const { nombre, email, password } = req.body;
+  console.log({ nombre, email, password });
+  res.status(201).json({ mensaje: '✅ Usuario registrado' });
 });
 
-// Puerto
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`✅ Backend corriendo en el puerto ${PORT}`);
+  console.log(`🚀 Servidor en el puerto ${PORT}`);
 });
