@@ -8,6 +8,7 @@
     },
     "dependencies": {
       "express": "^4.18.2",
+      "sequelize": "^6.32.1",  
       "cors": "^2.8.5"
     }
   }
