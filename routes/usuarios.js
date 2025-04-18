@@ -1,15 +1,18 @@
 const express = require('express');
 const router = express.Router();
 
-//RUTA PARA EL REGISTRO DEL USUARIO
+// Ruta POST /api/usuarios
 router.post('/usuarios', (req, res) => {
-  const { nombre, email, password } = req.body;
+    const { nombre, email, password } = req.body;
 
-  //COMPROBAR ESTO PRIMIERO Y LUEGO REGISTRAR EN BBDD
-  console.log('Usuario recibido:', { nombre, email, password });
+    if (!nombre || !email || !password) {
+        return res.status(400).json({ error: 'Todos los campos son obligatorios' });
+    }
 
-  res.status(201).json({ message: 'Usuario creado exitosamente' });
+    console.log('➡️ Usuario recibido:', { nombre, email, password });
+
+    // Simulación de respuesta exitosa
+    res.status(201).json({ message: 'Usuario creado correctamente' });
 });
 
 module.exports = router;
-
