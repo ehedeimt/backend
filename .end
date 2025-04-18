@@ -1,2 +1,2 @@
 PORT=3000
-DATABASE_URL=postgresql://usuario:contraseña@host:puerto/nombrebasedatos
+DATABASE_URL=postgresql://postgres:QuzItzlTJzMmGKHuMjAtoIdbJUNZoKBF@crossover.proxy.rlwy.net:16391/railway
