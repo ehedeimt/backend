@@ -2,17 +2,15 @@ const express = require('express');
 const router = express.Router();
 
 // Ruta POST /api/usuarios
-router.post('/usuarios', (req, res) => {
-    const { nombre, email, password } = req.body;
+router.post('/', (req, res) => {
+  const { nombre, email, password } = req.body;
 
-    if (!nombre || !email || !password) {
-        return res.status(400).json({ error: 'Todos los campos son obligatorios' });
-    }
+  if (!nombre || !email || !password) {
+    return res.status(400).json({ error: 'Faltan datos obligatorios' });
+  }
 
-    console.log('➡️ Usuario recibido:', { nombre, email, password });
-
-    // Simulación de respuesta exitosa
-    res.status(201).json({ message: 'Usuario creado correctamente' });
+  // Aquí puedes guardar en la base de datos si tienes Sequelize configurado
+  return res.status(201).json({ mensaje: 'Usuario creado correctamente', usuario: { nombre, email } });
 });
 
 module.exports = router;
