@@ -2,11 +2,10 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-//
 app.use(cors({
   origin: 'https://eimtcms.eimt.uoc.edu', //dominio frontend exacto
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true
+  credentials: false
 }));
 
 app.use(express.json());
